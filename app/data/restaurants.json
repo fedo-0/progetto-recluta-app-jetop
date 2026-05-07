@@ -1,0 +1,29 @@
+{
+  "owner_id": "owner-luca-conti",
+  "restaurants": [
+    {
+      "id": "halal-lab-office",
+      "owner_id": "owner-luca-conti",
+      "name": "Halal Lab Office",
+      "category": "Kebab",
+      "description": "Lorem Ipsus",
+      "image": ""
+    },
+    {
+      "id": "pasta-lab-downtown",
+      "owner_id": "owner-luca-conti",
+      "name": "Pasta Lab Downtown",
+      "category": "Pasta",
+      "description": "Lorem Ipsus",
+      "image": ""
+    },
+    {
+      "id": "green-bowl-kitchen",
+      "owner_id": "owner-luca-conti",
+      "name": "Green Bowl Kitchen",
+      "category": "Vegan",
+      "description": "Lorem Ipsus",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,723 @@
+{
+  "restaurants": [
+    {
+      "id": "halal-lab-office",
+      "owner_id": "owner-luca-conti",
+      "name": "Halal Lab Office",
+      "dishes": [
+        {
+          "category": "Breakfast",
+          "items": [
+            {
+              "id": "halal-breakfast-falafel-wrap",
+              "name": "Falafel Breakfast Wrap",
+              "description": "Falafel, scrambled eggs, tahini, tomato, and greens in flatbread.",
+              "price": 8.9,
+              "tags": [
+                "Delivery",
+                "Pick Up"
+              ],
+              "ingredients": [
+                "falafel",
+                "eggs",
+                "tahini",
+                "tomato",
+                "mixed greens",
+                "flatbread"
+              ],
+              "reviews": [
+                "5",
+                "4.5",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Lunch",
+          "items": [
+            {
+              "id": "halal-lunch-chicken-bowl",
+              "name": "Harissa Chicken Bowl",
+              "description": "Grilled chicken over rice with chickpeas, cucumber salad, and harissa yogurt.",
+              "price": 13.5,
+              "tags": [
+                "Delivery",
+                "delivery"
+              ],
+              "ingredients": [
+                "chicken",
+                "rice",
+                "chickpeas",
+                "cucumber",
+                "harissa",
+                "yogurt"
+              ],
+              "reviews": [
+                "4.5",
+                "5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "halal-lunch-kofta-plate",
+              "name": "Beef Kofta Plate",
+              "description": "Spiced beef kofta with couscous, roasted vegetables, and tahini sauce.",
+              "price": 15,
+              "tags": [
+                "Pick UP",
+                "delivery"
+              ],
+              "ingredients": [
+                "beef",
+                "parsley",
+                "couscous",
+                "zucchini",
+                "eggplant",
+                "tahini"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "halal-lunch-lentil-soup",
+              "name": "Red Lentil Soup",
+              "description": "Creamy red lentil soup with lemon, cumin, and toasted pita chips.",
+              "price": 10,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "red lentils",
+                "carrot",
+                "onion",
+                "lemon",
+                "cumin",
+                "pita chips"
+              ],
+              "reviews": [
+                "4",
+                "4",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Dinner",
+          "items": [
+            {
+              "id": "halal-dinner-lamb-tagine",
+              "name": "Lamb Tagine",
+              "description": "Slow cooked lamb with apricots, almonds, saffron rice, and herbs.",
+              "price": 20,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "lamb",
+                "apricots",
+                "almonds",
+                "saffron rice",
+                "parsley",
+                "spices"
+              ],
+              "reviews": [
+                "5",
+                "4.5",
+                "5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "halal-dinner-salmon-couscous",
+              "name": "Sumac Salmon Couscous",
+              "description": "Roasted salmon with pearl couscous, herbs, lemon, and sumac.",
+              "price": 20.5,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "salmon",
+                "pearl couscous",
+                "sumac",
+                "lemon",
+                "parsley",
+                "olive oil"
+              ],
+              "reviews": [
+                "4.5",
+                "4.5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "halal-dinner-stuffed-peppers",
+              "name": "Stuffed Bell Peppers",
+              "description": "Bell peppers filled with rice, lentils, herbs, and tomato sauce.",
+              "price": 16,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "bell peppers",
+                "rice",
+                "lentils",
+                "tomato sauce",
+                "mint",
+                "parsley"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pasta-lab-downtown",
+      "owner_id": "owner-luca-conti",
+      "name": "Pasta Lab Downtown",
+      "dishes": [
+        {
+          "category": "Breakfast",
+          "items": [
+            {
+              "id": "pasta-breakfast-cornetto",
+              "name": "Cornetto Cream",
+              "description": "Buttery cornetto filled with vanilla pastry cream.",
+              "price": 4.5,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "flour",
+                "butter",
+                "eggs",
+                "vanilla cream",
+                "sugar",
+                "milk"
+              ],
+              "reviews": [
+                "4.5",
+                "4",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "pasta-breakfast-frittata",
+              "name": "Herb Frittata",
+              "description": "Oven baked eggs with ricotta, spinach, basil, and cherry tomatoes.",
+              "price": 8,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "eggs",
+                "ricotta",
+                "spinach",
+                "basil",
+                "cherry tomatoes",
+                "parmesan"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "pasta-breakfast-bruschetta",
+              "name": "Breakfast Bruschetta",
+              "description": "Toasted bread with stracciatella, tomato, basil, and olive oil.",
+              "price": 7,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "bread",
+                "stracciatella",
+                "tomatoes",
+                "basil",
+                "olive oil",
+                "salt"
+              ],
+              "reviews": [
+                "4",
+                "4",
+                "5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Lunch",
+          "items": [
+            {
+              "id": "pasta-lunch-tagliatelle-ragu",
+              "name": "Tagliatelle al Ragu",
+              "description": "Fresh tagliatelle with slow cooked beef and tomato ragu.",
+              "price": 13,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "tagliatelle",
+                "beef",
+                "tomato",
+                "carrot",
+                "celery",
+                "onion"
+              ],
+              "reviews": [
+                "4.5",
+                "5",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "pasta-lunch-pesto-trofie",
+              "name": "Trofie al Pesto",
+              "description": "Trofie pasta with basil pesto, green beans, potatoes, and pine nuts.",
+              "price": 12.5,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "trofie",
+                "basil",
+                "pine nuts",
+                "green beans",
+                "potatoes",
+                "parmesan"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "pasta-lunch-risotto-funghi",
+              "name": "Risotto ai Funghi",
+              "description": "Carnaroli rice with porcini mushrooms, butter, and parmesan.",
+              "price": 15,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "carnaroli rice",
+                "porcini mushrooms",
+                "butter",
+                "parmesan",
+                "onion",
+                "parsley"
+              ],
+              "reviews": [
+                "4",
+                "5",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Dinner",
+          "items": [
+            {
+              "id": "pasta-dinner-lasagna",
+              "name": "Lasagna Classica",
+              "description": "Layered pasta with ragu, bechamel, parmesan, and mozzarella.",
+              "price": 16,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "pasta sheets",
+                "ragu",
+                "bechamel",
+                "parmesan",
+                "mozzarella",
+                "tomato"
+              ],
+              "reviews": [
+                "5",
+                "4.5",
+                "5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "pasta-dinner-vongole",
+              "name": "Spaghetti alle Vongole",
+              "description": "Spaghetti with clams, garlic, parsley, olive oil, and white wine.",
+              "price": 18,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "spaghetti",
+                "clams",
+                "garlic",
+                "parsley",
+                "olive oil",
+                "white wine"
+              ],
+              "reviews": [
+                "4.5",
+                "4",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "pasta-dinner-gnocchi",
+              "name": "Gnocchi Sorrentina",
+              "description": "Potato gnocchi baked with tomato sauce, basil, and mozzarella.",
+              "price": 14.5,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "potato gnocchi",
+                "tomato sauce",
+                "mozzarella",
+                "basil",
+                "parmesan",
+                "olive oil"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "green-bowl-kitchen",
+      "owner_id": "owner-luca-conti",
+      "name": "Green Bowl Kitchen",
+      "dishes": [
+        {
+          "category": "Breakfast",
+          "items": [
+            {
+              "id": "green-breakfast-acai",
+              "name": "Acai Berry Bowl",
+              "description": "Acai blended with banana, berries, granola, coconut, and chia.",
+              "price": 9,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "acai",
+                "banana",
+                "berries",
+                "granola",
+                "coconut",
+                "chia seeds"
+              ],
+              "reviews": [
+                "4.5",
+                "4.5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "green-breakfast-avocado-toast",
+              "name": "Avocado Seed Toast",
+              "description": "Whole grain toast with avocado, pumpkin seeds, sprouts, and lime.",
+              "price": 8.5,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "whole grain bread",
+                "avocado",
+                "pumpkin seeds",
+                "sprouts",
+                "lime",
+                "chili flakes"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "green-breakfast-oatmeal",
+              "name": "Apple Cinnamon Oatmeal",
+              "description": "Warm oats with apple, cinnamon, walnuts, and maple syrup.",
+              "price": 7.5,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "oats",
+                "apple",
+                "cinnamon",
+                "walnuts",
+                "maple syrup",
+                "almond milk"
+              ],
+              "reviews": [
+                "4",
+                "4",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Lunch",
+          "items": [
+            {
+              "id": "green-lunch-quinoa-bowl",
+              "name": "Quinoa Power Bowl",
+              "description": "Quinoa with roasted vegetables, chickpeas, avocado, and lemon tahini.",
+              "price": 12.5,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "quinoa",
+                "chickpeas",
+                "avocado",
+                "zucchini",
+                "carrot",
+                "tahini"
+              ],
+              "reviews": [
+                "4.5",
+                "5",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "green-lunch-tofu-salad",
+              "name": "Sesame Tofu Salad",
+              "description": "Crisp greens with sesame tofu, edamame, cucumber, and ginger dressing.",
+              "price": 11.5,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "tofu",
+                "mixed greens",
+                "edamame",
+                "cucumber",
+                "sesame",
+                "ginger"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "green-lunch-sweet-potato",
+              "name": "Sweet Potato Bowl",
+              "description": "Roasted sweet potato with black beans, corn salsa, greens, and lime crema.",
+              "price": 12,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "sweet potato",
+                "black beans",
+                "corn",
+                "greens",
+                "lime",
+                "yogurt"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Dinner",
+          "items": [
+            {
+              "id": "green-dinner-mushroom-steak",
+              "name": "Portobello Steak Plate",
+              "description": "Grilled portobello with cauliflower mash, broccolini, and herb sauce.",
+              "price": 15.5,
+              "tags": [
+                "Pick UP"
+              ],
+              "ingredients": [
+                "portobello",
+                "cauliflower",
+                "broccolini",
+                "parsley",
+                "garlic",
+                "olive oil"
+              ],
+              "reviews": [
+                "4",
+                "4.5",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "green-dinner-chickpea-curry",
+              "name": "Chickpea Coconut Curry",
+              "description": "Chickpeas and vegetables simmered in coconut curry with brown rice.",
+              "price": 14,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "chickpeas",
+                "coconut milk",
+                "brown rice",
+                "spinach",
+                "tomato",
+                "curry spices"
+              ],
+              "reviews": [
+                "4.5",
+                "5",
+                "4"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            },
+            {
+              "id": "green-dinner-zucchini-noodles",
+              "name": "Zucchini Noodle Primavera",
+              "description": "Zucchini noodles with cherry tomatoes, peas, basil pesto, and almonds.",
+              "price": 13.5,
+              "tags": [
+                "Delivery"
+              ],
+              "ingredients": [
+                "zucchini",
+                "cherry tomatoes",
+                "peas",
+                "basil pesto",
+                "almonds",
+                "olive oil"
+              ],
+              "reviews": [
+                "4",
+                "4",
+                "4.5"
+              ],
+              "images": [
+                "/images/cibo.jpg",
+                "/images/cibo.jpg"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

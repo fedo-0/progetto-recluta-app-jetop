@@ -1,0 +1,51 @@
+[
+  {
+    "id": "owner-luca-conti",
+    "name": "Luca Conti",
+    "initials": "LC",
+    "email": "luca.conti@example.com",
+    "role": "owner"
+  },
+  {
+    "id": "client-maria-rossi",
+    "name": "Maria Rossi",
+    "initials": "MR",
+    "email": "maria.rossi@example.com",
+    "role": "client"
+  },
+  {
+    "id": "client-ahmed-hassan",
+    "name": "Ahmed Hassan",
+    "initials": "AH",
+    "email": "ahmed.hassan@example.com",
+    "role": "client"
+  },
+  {
+    "id": "client-sofia-romano",
+    "name": "Sofia Romano",
+    "initials": "SR",
+    "email": "sofia.romano@example.com",
+    "role": "client"
+  },
+  {
+    "id": "client-marco-bianchi",
+    "name": "Marco Bianchi",
+    "initials": "MB",
+    "email": "marco.bianchi@example.com",
+    "role": "client"
+  },
+  {
+    "id": "client-emma-green",
+    "name": "Emma Green",
+    "initials": "EG",
+    "email": "emma.green@example.com",
+    "role": "client"
+  },
+  {
+    "id": "client-liam-chen",
+    "name": "Liam Chen",
+    "initials": "LC",
+    "email": "liam.chen@example.com",
+    "role": "client"
+  }
+]
