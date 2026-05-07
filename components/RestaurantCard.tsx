@@ -1,18 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableWithoutFeedback } from "react-native";
 
 type RestaurantCardProps = {
+  id: string;
   name: string;
   category: string;
   description: string;
+  onPress: (id: string) => void;
 };
 
-export default function RestaurantCard({ name, category, description }: RestaurantCardProps) {
+export default function RestaurantCard({ id, name, category, description, onPress }: RestaurantCardProps) {
   return (
-    <View style={styles.card}>
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.category}>{category}</Text>
-      <Text style={styles.description}>{description}</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={() => onPress(id)}>
+      <View style={styles.card}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.category}>{category}</Text>
+        <Text style={styles.description}>{description}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
