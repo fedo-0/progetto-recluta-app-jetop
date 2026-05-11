@@ -11,11 +11,14 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useOrder } from "../../contexts/OrderContext";
+import MenuItemCard from "../../components/MenuItemCard";
 
 export default function RestaurantDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const { order, addItem, updateQuantity, itemCount } = useOrder();
 
   const restaurant = restaurantsData.restaurants.find((r) => r.id === id);
   const restaurantDishes = dishesData.restaurants.find((r) => r.id === id);
@@ -60,17 +63,31 @@ export default function RestaurantDetail() {
             {restaurantDishes.dishes.map((category) => (
               <View key={category.category} style={styles.categorySection}>
                 <Text style={styles.categoryTitle}>{category.category}</Text>
-                {category.items.map((item) => (
-                  <View key={item.id} style={styles.dishCard}>
-                    <View style={styles.dishInfo}>
-                      <Text style={styles.dishName}>{item.name}</Text>
-                      <Text style={styles.dishDescription}>
-                        {item.description}
-                      </Text>
-                    </View>
-                    <Text style={styles.dishPrice}>${item.price.toFixed(2)}</Text>
-                  </View>
-                ))}
+                {category.items.map((item) => {
+                  const qty =
+                    order?.items.find((i) => i.dishId === item.id)?.quantity ??
+                    0;
+                  return (
+                    <MenuItemCard
+                      key={item.id}
+                      dishId={item.id}
+                      name={item.name}
+                      description={item.description}
+                      price={item.price}
+                      quantity={qty}
+                      onAdd={() =>
+                        addItem(restaurant.id, restaurant.name, {
+                          dishId: item.id,
+                          name: item.name,
+                          price: item.price,
+                        })
+                      }
+                      onRemove={() =>
+                        updateQuantity(item.id, qty - 1)
+                      }
+                    />
+                  );
+                })}
               </View>
             ))}
           </View>
@@ -78,6 +95,16 @@ export default function RestaurantDetail() {
           <Text style={styles.noMenu}>No menu available</Text>
         )}
       </ScrollView>
+      {itemCount > 0 && (
+        <TouchableOpacity
+          style={styles.cartBar}
+          onPress={() => router.push("/cart")}
+        >
+          <Text style={styles.cartBarText}>
+            View Cart ({itemCount} {itemCount === 1 ? "item" : "items"})
+          </Text>
+        </TouchableOpacity>
+      )}
     </SafeAreaView>
   );
 }
@@ -134,33 +161,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "#333",
-    marginBottom: 8,
+    marginBottom: 10,
   },
-  dishCard: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
+  cartBar: {
+    position: "absolute",
+    bottom: 20,
+    left: 20,
+    right: 20,
+    backgroundColor: "#007AFF",
+    padding: 16,
+    borderRadius: 12,
+    alignItems: "center",
   },
-  dishInfo: {
-    flex: 1,
-    marginRight: 12,
-  },
-  dishName: {
-    fontSize: 15,
-    fontWeight: "500",
-    color: "#222",
-  },
-  dishDescription: {
-    fontSize: 13,
-    color: "#888",
-    marginTop: 4,
-  },
-  dishPrice: {
-    fontSize: 15,
+  cartBarText: {
+    fontSize: 16,
     fontWeight: "600",
-    color: "#111",
+    color: "#fff",
   },
   error: {
     fontSize: 16,
