@@ -1,12 +1,28 @@
+import SearchBar from "@/components/SearchBar";
 import RestaurantCard from "@/components/RestaurantCard";
 import { useRouter } from "expo-router";
+import { useMemo, useState } from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import restaurantsData from "../../data/restaurants.json" with { type: "json" };
 
 export default function Dashboard() {
   const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
   const restaurants = restaurantsData.restaurants;
+  const filteredRestaurants = useMemo(() => {
+    const normalizedQuery = searchQuery.trim().toLowerCase();
+
+    if (!normalizedQuery) {
+      return restaurants;
+    }
+
+    return restaurants.filter((restaurant) =>
+      [restaurant.name, restaurant.category, restaurant.description].some(
+        (value) => value.toLowerCase().includes(normalizedQuery)
+      )
+    );
+  }, [restaurants, searchQuery]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,17 +38,22 @@ export default function Dashboard() {
           <Text style={styles.profileButtonText}>👤</Text>
         </TouchableOpacity>
       </View>
+      <SearchBar value={searchQuery} onChangeText={setSearchQuery} />
       <ScrollView contentContainerStyle={styles.list}>
-        {restaurants.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant.id}
-            id={restaurant.id}
-            name={restaurant.name}
-            category={restaurant.category}
-            description={restaurant.description}
-            onPress={(id) => router.push({ pathname: "/restaurant/[id]", params: { id } })}
-          />
-        ))}
+        {filteredRestaurants.length > 0 ? (
+          filteredRestaurants.map((restaurant) => (
+            <RestaurantCard
+              key={restaurant.id}
+              id={restaurant.id}
+              name={restaurant.name}
+              category={restaurant.category}
+              description={restaurant.description}
+              onPress={(id) => router.push({ pathname: "/restaurant/[id]", params: { id } })}
+            />
+          ))
+        ) : (
+          <Text style={styles.emptyText}>No restaurants found</Text>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -63,6 +84,12 @@ const styles = StyleSheet.create({
   list: {
     paddingHorizontal: 20,
     paddingBottom: 20,
+  },
+  emptyText: {
+    marginTop: 24,
+    textAlign: "center",
+    fontSize: 14,
+    color: "#888",
   },
   profileButton: {
     padding: 8,
