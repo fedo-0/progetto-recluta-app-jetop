@@ -15,6 +15,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import restaurantsData from "../../data/restaurants.json" with { type: "json" };
 import usersData from "../../data/users.json" with { type: "json" };
+import { useOrder } from "../../contexts/OrderContext";
 
 const CURRENT_USER_ID = "client-maria-rossi";
 
@@ -38,6 +39,7 @@ type AppUser = {
 
 export default function Dashboard() {
   const router = useRouter();
+  const { itemCount } = useOrder();
   const [searchQuery, setSearchQuery] = useState("");
   const [addressModalVisible, setAddressModalVisible] = useState(false);
   const restaurants = restaurantsData.restaurants;
@@ -86,10 +88,16 @@ export default function Dashboard() {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => router.push("/profile")}
+          activeOpacity={0.75}
+          style={styles.headerIconButton}
+          onPress={() => router.push("/cart")}
         >
-          <Ionicons name="person-outline" size={20} color="#111" />
+          <Ionicons name="cart-outline" size={21} color="#111" />
+          {itemCount > 0 && (
+            <View style={styles.cartBadge}>
+              <Text style={styles.cartBadgeText}>{itemCount}</Text>
+            </View>
+          )}
         </TouchableOpacity>
       </View>
       <View style={styles.titleSection}>
@@ -300,12 +308,29 @@ const styles = StyleSheet.create({
     color: "#999",
     marginTop: 4,
   },
-  profileButton: {
+  headerIconButton: {
     width: 36,
     height: 36,
     borderRadius: 20,
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
+  },
+  cartBadge: {
+    position: "absolute",
+    top: -4,
+    right: -4,
+    minWidth: 18,
+    height: 18,
+    borderRadius: 9,
+    paddingHorizontal: 5,
+    backgroundColor: "#ef6c22",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  cartBadgeText: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#fff",
   },
 });
