@@ -11,41 +11,141 @@
     "name": "Maria Rossi",
     "initials": "MR",
     "email": "maria.rossi@example.com",
-    "role": "client"
+    "role": "client",
+    "delivery": {
+      "defaultAddressId": "maria-office",
+      "addresses": [
+        {
+          "id": "maria-home",
+          "label": "Home",
+          "street": "Via Roma 12",
+          "city": "Milan",
+          "postalCode": "20121",
+          "country": "Italy",
+          "phone": "+39 333 123 4567",
+          "instructions": "Ring the bell marked Rossi."
+        },
+        {
+          "id": "maria-office",
+          "label": "Halal Lab office",
+          "street": "Via Torino 45",
+          "city": "Milan",
+          "postalCode": "20123",
+          "country": "Italy",
+          "phone": "+39 333 123 4567",
+          "instructions": "Leave the order at reception."
+        }
+      ]
+    }
   },
   {
     "id": "client-ahmed-hassan",
     "name": "Ahmed Hassan",
     "initials": "AH",
     "email": "ahmed.hassan@example.com",
-    "role": "client"
+    "role": "client",
+    "delivery": {
+      "defaultAddressId": "ahmed-home",
+      "addresses": [
+        {
+          "id": "ahmed-home",
+          "label": "Home",
+          "street": "Corso Buenos Aires 22",
+          "city": "Milan",
+          "postalCode": "20124",
+          "country": "Italy",
+          "phone": "+39 333 234 5678",
+          "instructions": "Call on arrival."
+        }
+      ]
+    }
   },
   {
     "id": "client-sofia-romano",
     "name": "Sofia Romano",
     "initials": "SR",
     "email": "sofia.romano@example.com",
-    "role": "client"
+    "role": "client",
+    "delivery": {
+      "defaultAddressId": "sofia-home",
+      "addresses": [
+        {
+          "id": "sofia-home",
+          "label": "Home",
+          "street": "Via Garibaldi 8",
+          "city": "Turin",
+          "postalCode": "10122",
+          "country": "Italy",
+          "phone": "+39 333 345 6789",
+          "instructions": "Second floor, no elevator."
+        }
+      ]
+    }
   },
   {
     "id": "client-marco-bianchi",
     "name": "Marco Bianchi",
     "initials": "MB",
     "email": "marco.bianchi@example.com",
-    "role": "client"
+    "role": "client",
+    "delivery": {
+      "defaultAddressId": "marco-office",
+      "addresses": [
+        {
+          "id": "marco-office",
+          "label": "Office",
+          "street": "Piazza Maggiore 5",
+          "city": "Bologna",
+          "postalCode": "40124",
+          "country": "Italy",
+          "phone": "+39 333 456 7890",
+          "instructions": "Deliver to the front desk."
+        }
+      ]
+    }
   },
   {
     "id": "client-emma-green",
     "name": "Emma Green",
     "initials": "EG",
     "email": "emma.green@example.com",
-    "role": "client"
+    "role": "client",
+    "delivery": {
+      "defaultAddressId": "emma-home",
+      "addresses": [
+        {
+          "id": "emma-home",
+          "label": "Home",
+          "street": "Via San Felice 18",
+          "city": "Bologna",
+          "postalCode": "40122",
+          "country": "Italy",
+          "phone": "+39 333 567 8901",
+          "instructions": "Use the side entrance after 7 PM."
+        }
+      ]
+    }
   },
   {
     "id": "client-liam-chen",
     "name": "Liam Chen",
     "initials": "LC",
     "email": "liam.chen@example.com",
-    "role": "client"
+    "role": "client",
+    "delivery": {
+      "defaultAddressId": "liam-home",
+      "addresses": [
+        {
+          "id": "liam-home",
+          "label": "Home",
+          "street": "Via Santa Lucia 30",
+          "city": "Naples",
+          "postalCode": "80132",
+          "country": "Italy",
+          "phone": "+39 333 678 9012",
+          "instructions": "Meet outside the main gate."
+        }
+      ]
+    }
   }
 ]
