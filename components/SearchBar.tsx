@@ -9,18 +9,27 @@ import {
 type SearchBarProps = {
   value: string;
   onChangeText: (text: string) => void;
+  autoFocus?: boolean;
+  editable?: boolean;
+  onPress?: () => void;
   placeholder?: string;
 };
 
 export default function SearchBar({
   value,
   onChangeText,
+  autoFocus = false,
+  editable = true,
+  onPress,
   placeholder = "Search dishes, restaurants",
 }: SearchBarProps) {
-  return (
-    <View style={styles.container}>
+  const content = (
+    <>
       <Ionicons name="search-outline" size={18} color="#9a9a9a" />
       <TextInput
+        autoFocus={autoFocus}
+        editable={editable && !onPress}
+        onPressIn={onPress}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
@@ -28,7 +37,7 @@ export default function SearchBar({
         returnKeyType="search"
         style={styles.input}
       />
-      {value.length > 0 && (
+      {value.length > 0 && editable && !onPress && (
         <TouchableOpacity
           accessibilityLabel="Clear search"
           hitSlop={8}
@@ -37,6 +46,24 @@ export default function SearchBar({
           <Ionicons name="close-circle" size={18} color="#9a9a9a" />
         </TouchableOpacity>
       )}
+    </>
+  );
+
+  if (onPress) {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={styles.container}
+        onPress={onPress}
+      >
+        {content}
+      </TouchableOpacity>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      {content}
     </View>
   );
 }

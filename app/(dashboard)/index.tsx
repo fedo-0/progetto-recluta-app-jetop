@@ -31,20 +31,37 @@ type DeliveryAddress = {
 
 type AppUser = {
   id: string;
+  name: string;
   delivery?: {
     defaultAddressId: string;
     addresses: DeliveryAddress[];
   };
 };
 
+function getDayGreeting() {
+  const hour = new Date().getHours();
+
+  if (hour < 12) {
+    return "Good morning";
+  }
+
+  if (hour < 18) {
+    return "Good afternoon";
+  }
+
+  return "Good evening";
+}
+
 export default function Dashboard() {
   const router = useRouter();
   const { itemCount } = useOrder();
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [addressModalVisible, setAddressModalVisible] = useState(false);
   const restaurants = restaurantsData.restaurants;
   const users = usersData as AppUser[];
   const currentUser = users.find((user) => user.id === CURRENT_USER_ID);
+  const firstName = currentUser?.name.split(" ")[0] ?? "there";
   const deliveryAddresses = currentUser?.delivery?.addresses ?? [];
   const [selectedAddressId, setSelectedAddressId] = useState(
     currentUser?.delivery?.defaultAddressId ?? deliveryAddresses[0]?.id ?? ""
@@ -54,22 +71,34 @@ export default function Dashboard() {
   );
   const deliveryLocationLabel =
     selectedDeliveryAddress?.label ?? "Select location";
+  const restaurantCategories = useMemo(
+    () => [
+      "All",
+      ...Array.from(
+        new Set(restaurants.map((restaurant) => restaurant.category))
+      ),
+    ],
+    [restaurants]
+  );
   const filteredRestaurants = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
-    if (!normalizedQuery) {
-      return restaurants;
-    }
+    return restaurants.filter((restaurant) => {
+      const matchesCategory =
+        selectedCategory === "All" || restaurant.category === selectedCategory;
+      const matchesSearch =
+        !normalizedQuery ||
+        [restaurant.name, restaurant.category, restaurant.description].some(
+          (value) => value.toLowerCase().includes(normalizedQuery)
+        );
 
-    return restaurants.filter((restaurant) =>
-      [restaurant.name, restaurant.category, restaurant.description].some(
-        (value) => value.toLowerCase().includes(normalizedQuery)
-      )
-    );
-  }, [restaurants, searchQuery]);
+      return matchesCategory && matchesSearch;
+    });
+  }, [restaurants, searchQuery, selectedCategory]);
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
           activeOpacity={0.75}
@@ -100,11 +129,61 @@ export default function Dashboard() {
           )}
         </TouchableOpacity>
       </View>
+
+      {/* Greeting + Search */}
+      <View style={styles.greetingSection}>
+        <Text style={styles.greetingText}>
+          Hey {firstName}, {getDayGreeting()}!
+        </Text>
+        <SearchBar
+          value={searchQuery}
+          onChangeText={setSearchQuery}
+          onPress={() => router.push("/search")}
+        />
+      </View>
+
+      {/* Categories */}
+      <View style={styles.categorySection}>
+        <View style={styles.sectionHeadingRow}>
+          <Text style={styles.sectionTitle}>All Categories</Text>
+        </View>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.categoryList}
+        >
+          {restaurantCategories.map((category) => {
+            const selected = category === selectedCategory;
+
+            return (
+              <TouchableOpacity
+                key={category}
+                activeOpacity={0.75}
+                style={[
+                  styles.categoryPill,
+                  selected && styles.selectedCategoryPill,
+                ]}
+                onPress={() => setSelectedCategory(category)}
+              >
+                <Text
+                  style={[
+                    styles.categoryText,
+                    selected && styles.selectedCategoryText,
+                  ]}
+                >
+                  {category}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+      </View>
+
+      {/* Restaurants Display */}
       <View style={styles.titleSection}>
         <Text style={styles.title}>Restaurants</Text>
         <Text style={styles.subtitle}>Browse available restaurants</Text>
       </View>
-      <SearchBar value={searchQuery} onChangeText={setSearchQuery} />
       <ScrollView contentContainerStyle={styles.list}>
         {filteredRestaurants.length > 0 ? (
           filteredRestaurants.map((restaurant) => (
@@ -218,6 +297,52 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#333",
     marginRight: 4,
+  },
+  greetingSection: {
+    paddingTop: 4,
+  },
+  greetingText: {
+    paddingHorizontal: 20,
+    paddingBottom: 14,
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
+  },
+  categorySection: {
+    paddingBottom: 18,
+  },
+  sectionHeadingRow: {
+    paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#333",
+  },
+  categoryList: {
+    paddingHorizontal: 20,
+    gap: 10,
+  },
+  categoryPill: {
+    minWidth: 76,
+    height: 40,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  selectedCategoryPill: {
+    backgroundColor: "#ffd66b",
+  },
+  categoryText: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: "#555",
+  },
+  selectedCategoryText: {
+    color: "#111",
   },
   titleSection: {
     paddingHorizontal: 20,
